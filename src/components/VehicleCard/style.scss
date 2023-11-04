@@ -1,0 +1,107 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.vehicle-card {
+    display: flex;
+    flex-grow: 0;
+    width: 100%;
+
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+    &__image {
+        object-fit: cover;
+        width: 120px;
+    }
+
+    &__details {
+        border: solid 1px #EEF1F1;
+        padding-left: 16px;
+        width: 100%;
+    }
+
+    &__name {
+        display: inline-block;
+        font-size: 14px;
+        margin-bottom: 4px;
+        margin-top: 14px;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    &__price,
+    &__description {
+        color: #4B5055;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    &__description {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+}
+
+/* tablet devices */
+@media (min-width: 768px) {
+    .vehicle-card {
+        flex-direction: column;
+        text-align: center;
+        width: 50%;
+
+        &__image {
+            width: 100%;
+        }
+
+        &__details {
+            height: 100%;
+            padding: 0;
+        }
+
+        &__name {
+            font-size: 22px;
+            margin-bottom: 24px;
+            margin-top: 36px;
+
+            &::before,
+            &::after {
+                background-color: #000;
+                content: "";
+                height: 1px;
+                left: 0;
+                position: absolute;
+                width: 100%;
+            }
+
+            &::before {
+                top: -5px;
+            }
+
+            &::after {
+                bottom: -5px;
+            }
+        }
+
+        &__description {
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+/* desktop devices */
+@media (min-width: 1024px) {
+    .vehicle-card {
+        width: 100%;
+    }
+}
